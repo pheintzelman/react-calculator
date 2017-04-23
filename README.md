@@ -22,5 +22,5 @@ npm start
 npm run build
 ```
 
-* Files are saved into the `/dist` folder
-* To view it, open `dist/index.html`
+* Files are saved into the `/docs` folder
+* To view it, open `docs/index.html`
