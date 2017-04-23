@@ -1,0 +1,23 @@
+.app {
+    h1 {
+        font-family: Helvetica, sans-serif;
+        text-align: center;
+        color: #519bd4;
+    }
+}
+
+.footer {
+	margin-top: 20px;
+    text-align: center;
+
+	a {
+		padding: 5px 10px 5px 0;
+        color: #999;
+        text-decoration: none;
+	}
+
+    a:hover {
+        color: #5eafec;
+        text-decoration: none;
+	}
+}

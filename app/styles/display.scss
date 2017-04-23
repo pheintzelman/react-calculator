@@ -1,0 +1,17 @@
+.display {
+    background: #666;
+    border: solid 1px #000;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    font-size: 30px;
+    margin: 2px;
+    overflow: hidden;
+    height:42px;
+}
+
+.displayText {
+        color: #fff;
+        margin: 0px 5px;
+        overflow: hidden;
+        text-align: right;
+}
