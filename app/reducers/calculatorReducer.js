@@ -16,6 +16,8 @@ const calculatorReducer = (state = defaultState, action) => {
             return defaultState;
         case Actions.ZERO:
             return zero(state);
+        case Actions.DOT:
+            return dot(state);
         default:
             return state;
     }
@@ -43,6 +45,27 @@ function zero(state) {
     }
 
     return number(state, 0);
+}
+
+function dot(state) {
+    if(state.display.trim() !== '' && state.append) {
+        return Object.assign({}, state, {
+            'display': appendDecimal(state.display)
+        });
+    }
+
+    return Object.assign({}, state, {
+        'display': '0.',
+        'append': true
+    });
+}
+
+function appendDecimal(display) {
+    if(display.includes('.')) {
+        return display;
+    }
+
+    return display + '.';
 }
 
 export default calculatorReducer;
