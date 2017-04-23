@@ -1,2 +1,9 @@
 export const NUMBER = 'NUMBER';
 export const CLEAR = 'CLEAR';
+export const DIVIDE = 'DIVIDE';
+export const TIMES = 'TIMES';
+export const MINUS = 'MINUS';
+export const ZERO = 'ZERO';
+export const DOT = 'DOT';
+export const EQUAL = 'EQUAL';
+export const ADD = 'ADD';
