@@ -18,6 +18,14 @@ const calculatorReducer = (state = defaultState, action) => {
             return zero(state);
         case Actions.DOT:
             return dot(state);
+        case Actions.ADD:
+            return operation(state, Operations.Add);
+        case Actions.MINUS:
+            return operation(state, Operations.Minus);
+        case Actions.DIVIDE:
+            return operation(state, Operations.Divide);
+        case Actions.TIMES:
+            return operation(state, Operations.Times);
         default:
             return state;
     }
@@ -60,6 +68,31 @@ function dot(state) {
     });
 }
 
+function operation(state, fn) {
+    if(state.display.trim() === '') {
+        return state;
+    }
+
+    const value = parseFloat(state.display);
+    if(state.chainOperation) {
+        const result = state.operation(state.lastValue, value);
+
+        return Object.assign({}, state, {
+            'operation': fn,
+            'display': result.toString(),
+            'lastValue': result,
+            'append': false
+        });
+    }
+
+    return Object.assign({}, state, {
+        'operation': fn,
+        'lastValue': value,
+        'append': false,
+        'chainOperation': true
+    });
+}
+
 function appendDecimal(display) {
     if(display.includes('.')) {
         return display;
@@ -67,5 +100,12 @@ function appendDecimal(display) {
 
     return display + '.';
 }
+/*
+function calculate(state) {
+    const value = parseFloat(state.display);
+    const result = state.operation(state.lastValue, value);
 
+    return result.toString();
+}
+*/
 export default calculatorReducer;
