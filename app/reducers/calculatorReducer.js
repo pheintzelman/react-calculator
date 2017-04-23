@@ -26,6 +26,8 @@ const calculatorReducer = (state = defaultState, action) => {
             return operation(state, Operations.Divide);
         case Actions.TIMES:
             return operation(state, Operations.Times);
+        case Actions.EQUAL:
+            return equal(state);
         default:
             return state;
     }
@@ -93,6 +95,30 @@ function operation(state, fn) {
     });
 }
 
+function equal(state) {
+    if(state.display.trim() === '') {
+        return state;
+    }
+
+    const value = parseFloat(state.display);
+    if(state.append) {
+        const result = state.operation(state.lastValue, value);
+        return Object.assign({}, state, {
+            'display': result.toString(),
+            'lastValue': value,
+            'append': false,
+            'chainOperation': false
+        });
+    }
+
+    const result = state.operation(value, state.lastValue);
+    return Object.assign({}, state, {
+        'display': result.toString(),
+        'append': false,
+        'chainOperation': false
+    });
+}
+
 function appendDecimal(display) {
     if(display.includes('.')) {
         return display;
@@ -100,12 +126,5 @@ function appendDecimal(display) {
 
     return display + '.';
 }
-/*
-function calculate(state) {
-    const value = parseFloat(state.display);
-    const result = state.operation(state.lastValue, value);
 
-    return result.toString();
-}
-*/
 export default calculatorReducer;
