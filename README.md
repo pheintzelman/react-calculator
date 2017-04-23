@@ -1,8 +1,8 @@
-[<img src="/docs/screenshot.png" align="right" alt="React Calculator Demo" width="200px">](https://pheintzelman.github.io/elm-calculator/)
+[<img src="/docs/screenshot.png" align="right" alt="React Calculator Demo" width="200px">](https://pheintzelman.github.io/react-calculator/)
 # react-calculator
 A basic calculator built with react and redux. 
 
-[See demo here](https://pheintzelman.github.io/elm-calculator/) 
+[See demo here](https://pheintzelman.github.io/react-calculator/) 
 
 ### To Run:
 Download or clone than do
