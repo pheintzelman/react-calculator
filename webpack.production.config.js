@@ -16,7 +16,7 @@ module.exports = {
     output: {
         path: path.join(__dirname, '/docs/'),
         filename: '[name]-[hash].min.js',
-        publicPath: '/react-calculator/'
+        publicPath: ''
     },
     plugins: [
         new CopyWebpackPlugin([
